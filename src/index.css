@@ -1,17 +1,6 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-#root {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.form-login {
-    width: 60vw;
-    padding: 20px;
 }
