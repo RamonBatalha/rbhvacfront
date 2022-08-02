@@ -10,6 +10,8 @@
     justify-content: center;
     flex-direction: column;
 }
+
 .form-login {
     width: 60vw;
+    padding: 20px;
 }

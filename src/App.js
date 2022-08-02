@@ -1,9 +1,10 @@
 import React, { Component }  from 'react';
-import Login from "./pages/Login";
+import Login2 from "./pages/Login2"
+
 
 function App() {
   return (
-   <Login />
+   <Login2 />
   );
 }
 
