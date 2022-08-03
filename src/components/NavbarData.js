@@ -12,7 +12,7 @@ export const SidebarData = [
     },
     {
         title: 'Clientes',
-        path: '/cadcliente',
+        path: '/clientes',
         icon: <BsFillPersonLinesFill />,
         cName: 'nav-text'
     },
