@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 const schema = yup.object({
 nome: yup.string().required("Campo Obrigatório"),
@@ -14,9 +15,9 @@ observacao: yup.string().max(200, "Observação deve ter no máximo 200 caracter
 }).required();
 
 
-const Login = () => {
-  
-  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
+const CreateClient = () => {
+  let navigate = useNavigate();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
   
@@ -27,19 +28,19 @@ const Login = () => {
     axios.post('http://localhost:8080/clients', data)
     .then(function (response) {
       console.log(response);
+      navigate('/clientes')
     })
     .catch(function (error) {
       console.error(error);
     });
 
-    reset()
   }
   
   return (
 
-    <>
+    <section>
     <h1>Formulário de Cadastro</h1>
-    <Form className='form-login' onSubmit={handleSubmit(onSubmit)}>
+    <Form className='form-cadastro' onSubmit={handleSubmit(onSubmit)}>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Nome</Form.Label>
         <Form.Control type="text"  placeholder="Nome do Cliente" {...register("nome")} />
@@ -74,9 +75,9 @@ const Login = () => {
         Cadastrar
       </Button>
     </Form>
-    </>
+    </section>
 
   )
 }
 
-export default Login
+export default CreateClient

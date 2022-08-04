@@ -15,11 +15,5 @@ export const SidebarData = [
         path: '/clientes',
         icon: <BsFillPersonLinesFill />,
         cName: 'nav-text'
-    },
-    {
-        title: 'Home',
-        path: '/',
-        icon: <FaBars />,
-        cName: 'nav-text'
     }
 ]
