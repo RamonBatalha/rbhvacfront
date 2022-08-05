@@ -1,6 +1,6 @@
 # Front-end - Sistema de Gestão RBHVAC 
 
-O Projeto tem por objetivo elaborar o sistema de gestão para empresa de Refrigeração
+O Projeto tem por objetivo elaborar um sistema de gestão para empresa de Refrigeração
 
 Este projeto é composto por duas partes(Back-end e Front-end).  
 
