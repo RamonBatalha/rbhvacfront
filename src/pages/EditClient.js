@@ -27,7 +27,7 @@ const EditClient = () => {
   function onSubmit(data) {
     console.log(data);
 
-    axios.put('http://localhost:8080/clients', data)
+    axios.put('http://localhost:8080/api/clients/v1', data)
     .then(function (response) {
       console.log(response);
       navigate(`/clientes/${clientId}`)
@@ -41,7 +41,7 @@ const EditClient = () => {
 
   useEffect(() => {
 
-    axios.get(`http://localhost:8080/clients/${clientId}`)
+    axios.get(`http://localhost:8080/api/clients/v1/${clientId}`)
       .then(function (response) {
         reset(response.data)
       })

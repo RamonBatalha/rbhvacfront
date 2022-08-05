@@ -25,7 +25,7 @@ const CreateClient = () => {
   function onSubmit(data) {
     console.log(data);
 
-    axios.post('http://localhost:8080/clients', data)
+    axios.post('http://localhost:8080/api/clients/v1', data)
     .then(function (response) {
       console.log(response);
       navigate('/clientes')

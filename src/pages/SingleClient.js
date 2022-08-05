@@ -12,7 +12,7 @@ const {nome, endereço, cpf, telefone, email, observacao} = clients;
 
 
 useEffect(() => {{
-    axios.get(`http://localhost:8080/clients/${clientId}`)
+    axios.get(`http://localhost:8080/api/clients/v1/${clientId}`)
     .then(function (response) {
         setClients(response.data);
     })

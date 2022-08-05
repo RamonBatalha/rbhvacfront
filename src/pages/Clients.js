@@ -11,7 +11,7 @@ const [clients, setClients] = useState([]);
 
 useEffect(() => {
 
-axios.get('http://localhost:8080/clients')
+axios.get('http://localhost:8080/api/clients/v1')
   .then(function (response) {
     console.log(response.data);
     setClients(response.data);
@@ -35,7 +35,7 @@ clients.sort((a, b) => {
 function clientDelete(id) {
     
     if(window.confirm('Você tem certeza que deseja deletar o cliente?')){
-        axios.delete(`http://localhost:8080/clients/${id}`)
+        axios.delete(`http://localhost:8080/api/clients/v1/${id}`)
 
         setClients(clients.filter(item => item.id !== id)) 
     }

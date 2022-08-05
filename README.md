@@ -13,7 +13,11 @@ Projeto em desenvolvimento utilizando:
 - Axios para a realização de requisições ao servidor 
 - Html, Css, Javascript, Bootstrap
 
-<h4> 💻💻 Projeto em desenvolvimento 💻💻... </h4>
+<img src="./Github/Animação1.gif">
+
+
+
+<h3> 💻💻 Projeto em desenvolvimento 💻💻... </h3>
 
 
 ## Features implementadas
@@ -32,6 +36,8 @@ Projeto em desenvolvimento utilizando:
 - ApiRest responsável pela implementação do CRUD de cadastros de clientes
 - Utilização de padrão MVC, Migrations, VO/DTO.
 - Banco de dados MySQL 
+
+<img src="./Github/MySQL_back.png">
 
 Acesso ao repositório [Back-end](https://github.com/RamonBatalha/backrbhvac) 
 
