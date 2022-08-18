@@ -22,7 +22,7 @@ Projeto em desenvolvimento utilizando:
 
 ## Features implementadas
 
-- CRUD responsável pela criação e edição de clientes conectado ao Bando de Dados
+- CRUD responsável pela criação e edição de clientes e colaboradores conectado ao Bando de Dados
 - Sidebar de navegação
 
 ## Back-end
@@ -33,7 +33,7 @@ Projeto em desenvolvimento utilizando:
 
 ## Features implementadas
 
-- ApiRest responsável pela implementação do CRUD de cadastros de clientes
+- ApiRest responsável pela implementação do CRUD de cadastros de clientes e colaboradores
 - Utilização de padrão MVC, Migrations, VO/DTO.
 - Banco de dados MySQL 
 
