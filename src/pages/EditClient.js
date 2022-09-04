@@ -9,11 +9,13 @@ import {useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
 
 const schema = yup.object({
-nome: yup.string().required("Campo Obrigatório"),
-endereço: yup.string().required("Campo Obrigatório"),
-email: yup.string().email("digite um email válido").required("Campo Obrigatório"),
-observacao: yup.string().max(200, "Observação deve ter no máximo 200 caracteres"),
-}).required();
+  nome: yup.string().required("Campo Obrigatório"),
+  cpf: yup.string().required("Campo Obrigatório"),
+  telefone: yup.string().required("Campo Obrigatório"),
+  endereço: yup.string().required("Campo Obrigatório"),
+  email: yup.string().email("digite um email válido").required("Campo Obrigatório"),
+  observacao: yup.string().max(200, "Observação deve ter no máximo 200 caracteres").required("Campo Obrigatório"),
+  }).required();
 
 
 const EditClient = () => {
@@ -69,12 +71,12 @@ const EditClient = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>CPF</Form.Label>
-        <Form.Control type="number" placeholder="CPF do Cliente" {...register("cpf")} />
+        <Form.Control type="text" placeholder="CPF do Cliente" {...register("cpf")} />
         <span>{errors.cpf?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Telefone</Form.Label>
-        <Form.Control type="number"  placeholder="Telefone do Cliente" {...register("telefone")} />
+        <Form.Control type="text"  placeholder="Telefone do Cliente" {...register("telefone")} />
         <span>{errors.telefone?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

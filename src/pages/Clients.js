@@ -8,6 +8,8 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 function Clients() {
 
 const [clients, setClients] = useState([]);
+const [busca, setBusca] = useState([]);
+
 
 useEffect(() => {
 
@@ -21,6 +23,10 @@ axios.get('http://localhost:8080/api/clients/v1')
     console.error(error);
   });
 }, [])
+
+
+//filtro de barra de pesquisa. Aqui nós temos um filtro pelo input que verifica as correspondências do Array de Clients que recebemos do API. Utilizamos o toLowerCase para ajustar os termos de busca para LowerCase, para melhor a questão do Case Sensitive
+const clienteSearch = clients.filter((item) => item.nome.toLowerCase().includes(busca.toString().toLowerCase()));
 
 
 //ordenando Lista por ordem alfabética
@@ -44,12 +50,13 @@ function clientDelete(id) {
   return (
     <section>
       <h1>Lista de Clientes</h1>
+      <input type="text" value={busca} className='search-bar' onChange={(e) => setBusca(e.target.value)} />
       <Link to='/cadcliente'>
         <button className='btn-form'>Adicionar Cliente</button>
       </Link>
       
         <ul className='list-clients'>
-          {clients.map((item, index) => {
+          {clienteSearch.map((item, index) => {
                 return (
                   <li key={index}>
                     

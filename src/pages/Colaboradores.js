@@ -8,6 +8,7 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 function Colaboradores() {
 
 const [colaboradores, setColaboradores] = useState([]);
+const [busca, setBusca] = useState([]);
 
 useEffect(() => {
 
@@ -22,6 +23,8 @@ axios.get('http://localhost:8080/api/colaboradores/v1')
   });
 }, [])
 
+//filtro para search bar
+const colaboradoresSearch = colaboradores.filter((item) => item.nome.toLowerCase().includes(busca.toString().toLowerCase()));
 
 //ordenando Lista por ordem alfabética
 colaboradores.sort((a, b) => {
@@ -44,12 +47,13 @@ function colaboradorDelete(id) {
   return (
     <section>
       <h1>Lista de Colaboradores</h1>
+      <input type="text" value={busca} className='search-bar' onChange={(e) => setBusca(e.target.value)} />
       <Link to='/cadcolaboradores'>
         <button className='btn-form'>Adicionar Colaborador</button>
       </Link>
       
         <ul className='list-clients'>
-          {colaboradores.map((item, index) => {
+          {colaboradoresSearch.map((item, index) => {
                 return (
                   <li key={index}>
                     

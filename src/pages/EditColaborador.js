@@ -9,11 +9,14 @@ import {useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
 
 const schema = yup.object({
-nome: yup.string().required("Campo Obrigatório"),
-endereço: yup.string().required("Campo Obrigatório"),
-email: yup.string().email("digite um email válido").required("Campo Obrigatório"),
-cargo: yup.string().max(200, "Cargo deve ter no máximo 200 caracteres").required("Campo Obrigatório"),
-}).required();
+  nome: yup.string().required("Campo Obrigatório"),
+  cpf: yup.string().required("Campo Obrigatório"),
+  telefone: yup.string().required("Campo Obrigatório"),
+  cargo: yup.string().required("Campo Obrigatório"),
+  remuneraçao: yup.string().required("Campo Obrigatório"),
+  endereço: yup.string().required("Campo Obrigatório"),
+  email: yup.string().email("digite um email válido").required("Campo Obrigatório"),
+  }).required();
 
 
 const EditColaborador = () => {
@@ -68,7 +71,7 @@ const EditColaborador = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>CPF</Form.Label>
-        <Form.Control type="number" placeholder="CPF do Colaborador" {...register("cpf")} />
+        <Form.Control type="text" placeholder="CPF do Colaborador" {...register("cpf")} />
         <span>{errors.cpf?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -78,12 +81,12 @@ const EditColaborador = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Remuneração</Form.Label>
-        <Form.Control type="number" placeholder="CPF do Colaborador" {...register("remuneraçao")} />
+        <Form.Control type="text" placeholder="Remuneração do Colaborador" {...register("remuneraçao")} />
         <span>{errors.remuneraçao?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Telefone</Form.Label>
-        <Form.Control type="number"  placeholder="Telefone do Colaborador" {...register("telefone")} />
+        <Form.Control type="text"  placeholder="Telefone do Colaborador" {...register("telefone")} />
         <span>{errors.telefone?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

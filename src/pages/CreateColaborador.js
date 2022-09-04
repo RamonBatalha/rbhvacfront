@@ -7,17 +7,20 @@ import * as yup from "yup";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
-const schema = yup.object({
-nome: yup.string().required("Campo Obrigatório"),
-endereço: yup.string().required("Campo Obrigatório"),
-email: yup.string().email("digite um email válido").required("Campo Obrigatório"),
-cargo: yup.string().max(200, "Cargo deve ter no máximo 200 caracteres").required("Campo Obrigatório"),
-}).required();
 
+const schema = yup.object({
+  nome: yup.string().required("Campo Obrigatório"),
+  cpf: yup.string().required("Campo Obrigatório"),
+  telefone: yup.string().required("Campo Obrigatório"),
+  cargo: yup.string().required("Campo Obrigatório"),
+  remuneraçao: yup.string().required("Campo Obrigatório"),
+  endereço: yup.string().required("Campo Obrigatório"),
+  email: yup.string().email("digite um email válido").required("Campo Obrigatório"),
+  }).required();
 
 const CreateColaborador = () => {
   let navigate = useNavigate();
-  const { register, handleSubmit, reset, formState: { errors } } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
   
@@ -39,7 +42,7 @@ const CreateColaborador = () => {
   return (
 
     <section>
-    <h1>Formulário de Cadastro</h1>
+    <h1>Cadastro de Colaboradores</h1>
     <Form className='form-cadastro' onSubmit={handleSubmit(onSubmit)}>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Nome</Form.Label>
@@ -53,7 +56,7 @@ const CreateColaborador = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>CPF</Form.Label>
-        <Form.Control type="number" placeholder="CPF do Colaborador" {...register("cpf")} />
+        <Form.Control type="text" placeholder="CPF do Colaborador" {...register("cpf")} />
         <span>{errors.cpf?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -63,12 +66,12 @@ const CreateColaborador = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Remuneração</Form.Label>
-        <Form.Control type="number" placeholder="CPF do Colaborador" {...register("remuneraçao")} />
+        <Form.Control type="text" placeholder="Remuneração do Colaborador" {...register("remuneraçao")} />
         <span>{errors.remuneraçao?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Telefone</Form.Label>
-        <Form.Control type="number"  placeholder="Telefone do Colaborador" {...register("telefone")} />
+        <Form.Control type="text"  placeholder="Telefone do Colaborador" {...register("telefone")} />
         <span>{errors.telefone?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
