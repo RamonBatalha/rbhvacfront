@@ -4,8 +4,12 @@
     padding: 0;
     box-sizing: border-box;
     
+    
 }
 
+body {
+    background-color: #f4f4f6;
+}
 section {
     display: flex;
     flex-direction: column;
@@ -49,13 +53,13 @@ section {
 
 .list-clients li a {
     text-decoration: none;
-    color: #060b26
+    color: #282828
 }
 
 .btn-form {
     border: none;
     border-radius: 8px;
-    background-color: #0d6efd;
+    background-color: #0555d6;
     color: white;
     width: 150px;
     height: 40px;
