@@ -50,9 +50,9 @@ function clientDelete(id) {
   return (
     <section>
       <h1>Lista de Clientes</h1>
-      <input type="text" value={busca} className='search-bar' onChange={(e) => setBusca(e.target.value)} />
+      <input type="text" value={busca} placeholder="Pesquisar..." className='search-bar' onChange={(e) => setBusca(e.target.value)} />
       <Link to='/cadcliente'>
-        <button className='btn-form'>Adicionar Cliente</button>
+        <button className='btn-form'>Adicionar</button>
       </Link>
       
         <ul className='list-clients'>

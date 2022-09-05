@@ -47,37 +47,37 @@ const CreateColaborador = () => {
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Nome</Form.Label>
         <Form.Control type="text"  placeholder="Nome do Colaborador" {...register("nome")} />
-        <span>{errors.nome?.message}</span>
+        <span className='span-erro-form'>{errors.nome?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Endereço</Form.Label>
         <Form.Control type="text" placeholder="Endereço do Colaborador" {...register("endereço")}  />
-        <span>{errors.endereço?.message}</span>
+        <span className='span-erro-form'>{errors.endereço?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>CPF</Form.Label>
         <Form.Control type="text" placeholder="CPF do Colaborador" {...register("cpf")} />
-        <span>{errors.cpf?.message}</span>
+        <span className='span-erro-form'>{errors.cpf?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Cargo</Form.Label>
         <Form.Control type="text" placeholder="Cargo do Colaborador" {...register("cargo")} />
-        <span>{errors.cargo?.message}</span>
+        <span className='span-erro-form'>{errors.cargo?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Remuneração</Form.Label>
         <Form.Control type="text" placeholder="Remuneração do Colaborador" {...register("remuneraçao")} />
-        <span>{errors.remuneraçao?.message}</span>
+        <span className='span-erro-form'>{errors.remuneraçao?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Telefone</Form.Label>
         <Form.Control type="text"  placeholder="Telefone do Colaborador" {...register("telefone")} />
-        <span>{errors.telefone?.message}</span>
+        <span className='span-erro-form'>{errors.telefone?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email</Form.Label>
         <Form.Control type="email" placeholder="colaborador@example.com" {...register("email")} />
-        <span>{errors.email?.message}</span>
+        <span className='span-erro-form'>{errors.email?.message}</span>
       </Form.Group>
 
       <Button variant="primary" type="submit" onClick={handleSubmit}>
