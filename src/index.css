@@ -19,6 +19,27 @@ section {
     /* border: solid 2px black; */
 }
 
+section a {
+    width: 50vw;
+    /* border: 2px solid black; */
+    /* word-break: break-all */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+}
+
+section .btn-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section span {
+    width: 30vw;
+    
+}
+
 .form-cadastro {
     width: 50vw;
     
@@ -80,3 +101,38 @@ section {
     width: 50vw;
     margin: 15px;
 }
+
+/* Ordem de serviço */
+
+#section-os {
+    width: 100vw;
+    /* border: solid 2px red; */
+}
+
+.ul-os{
+    font-size: 20px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width:75vw;
+}
+
+.ul-os li {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.ul-os li a {
+    text-decoration: none;
+    color: #282828
+}
+
+.div-btn {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+

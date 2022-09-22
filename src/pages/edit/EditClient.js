@@ -12,16 +12,15 @@ const schema = yup.object({
   nome: yup.string().required("Campo Obrigatório"),
   cpf: yup.string().required("Campo Obrigatório"),
   telefone: yup.string().required("Campo Obrigatório"),
-  cargo: yup.string().required("Campo Obrigatório"),
-  remuneraçao: yup.string().required("Campo Obrigatório"),
   endereço: yup.string().required("Campo Obrigatório"),
   email: yup.string().email("digite um email válido").required("Campo Obrigatório"),
+  observacao: yup.string().max(200, "Observação deve ter no máximo 200 caracteres").required("Campo Obrigatório"),
   }).required();
 
 
-const EditColaborador = () => {
+const EditClient = () => {
   let navigate = useNavigate();
-  const {colaboradorId} = useParams();
+  const {clientId} = useParams();
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
@@ -30,10 +29,10 @@ const EditColaborador = () => {
   function onSubmit(data) {
     console.log(data);
 
-    axios.put('http://localhost:8080/api/colaboradores/v1', data)
+    axios.put('http://localhost:8080/api/clients/v1', data)
     .then(function (response) {
       console.log(response);
-      navigate(`/colaboradores/${colaboradorId}`)
+      navigate(`/clientes/${clientId}`)
     })
     .catch(function (error) {
       console.error(error);
@@ -44,12 +43,12 @@ const EditColaborador = () => {
 
   useEffect(() => {
 
-    axios.get(`http://localhost:8080/api/colaboradores/v1/${colaboradorId}`)
+    axios.get(`http://localhost:8080/api/clients/v1/${clientId}`)
       .then(function (response) {
         reset(response.data)
       })
       .catch(function (error) {
-        // manipula erros da requisição
+        
         console.error(error);
       });
     }, [])
@@ -61,42 +60,36 @@ const EditColaborador = () => {
     <Form className='form-cadastro' onSubmit={handleSubmit(onSubmit)}>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Nome</Form.Label>
-        <Form.Control type="text"  placeholder="Nome do Colaborador" {...register("nome")} />
+        <Form.Control type="text"  placeholder="Nome do Cliente" {...register("nome")} />
         <span className='span-erro-form'>{errors.nome?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Endereço</Form.Label>
-        <Form.Control type="text" placeholder="Endereço do Colaborador" {...register("endereço")}  />
+        <Form.Control type="text" placeholder="Endereço do Cliente" {...register("endereço")}  />
         <span className='span-erro-form'>{errors.endereço?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>CPF</Form.Label>
-        <Form.Control type="text" placeholder="CPF do Colaborador" {...register("cpf")} />
+        <Form.Control type="text" placeholder="CPF do Cliente" {...register("cpf")} />
         <span className='span-erro-form'>{errors.cpf?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Cargo</Form.Label>
-        <Form.Control type="text" placeholder="Cargo do Colaborador" {...register("cargo")} />
-        <span className='span-erro-form'>{errors.cargo?.message}</span>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Remuneração</Form.Label>
-        <Form.Control type="text" placeholder="Remuneração do Colaborador" {...register("remuneraçao")} />
-        <span className='span-erro-form'>{errors.remuneraçao?.message}</span>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Telefone</Form.Label>
-        <Form.Control type="text"  placeholder="Telefone do Colaborador" {...register("telefone")} />
+        <Form.Control type="text"  placeholder="Telefone do Cliente" {...register("telefone")} />
         <span className='span-erro-form'>{errors.telefone?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="colaborador@example.com" {...register("email")} />
+        <Form.Control type="email" placeholder="cliente@example.com" {...register("email")} />
         <span className='span-erro-form'>{errors.email?.message}</span>
       </Form.Group>
-
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Editar
+      <Form.Group className="mb-3"  controlId="exampleForm.ControlTextarea1">
+        <Form.Label>Observação</Form.Label>
+        <Form.Control as="textarea" rows={3} {...register("observacao")}/>
+        <span className='span-erro-form'>{errors.observacao?.message}</span>
+      </Form.Group>
+      <Button variant="primary" type="submit" onClick={handleSubmit} >
+        Editar 
       </Button>
     </Form>
     </section>
@@ -104,4 +97,4 @@ const EditColaborador = () => {
   )
 }
 
-export default EditColaborador
+export default EditClient

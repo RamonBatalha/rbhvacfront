@@ -4,26 +4,25 @@ import {useParams, Link} from 'react-router-dom'
 import axios from 'axios';
 
 
-function SingleColaborador() {
-const {colaboradorId} = useParams();
-const [colaboradores, setColaboradores] = useState([]);
-const {nome, endereço, cpf, telefone, email, remuneraçao, cargo } = colaboradores;
+function SingleClient() {
+const {clientId} = useParams();
+const [clients, setClients] = useState([]);
+const {nome, endereço, cpf, telefone, email, observacao} = clients;
 
 
 
 useEffect(() => {{
-    axios.get(`http://localhost:8080/api/colaboradores/v1/${colaboradorId}`)
+    axios.get(`http://localhost:8080/api/clients/v1/${clientId}`)
     .then(function (response) {
-        setColaboradores(response.data);
+        setClients(response.data);
     })
     .catch(function (error) {
-        // manipula erros da requisição
         console.error(error);
     });}
     
 }, [])
 
-console.log(colaboradores)
+console.log(clients)
 
   return (
     <section >
@@ -31,10 +30,6 @@ console.log(colaboradores)
         <div className='single-client'>
             <span><strong>Nome:</strong> </span>
             <span>{nome}</span>
-            <span><strong>Cargo:</strong> </span>
-            <span>{cargo}</span>
-            <span><strong>Remuneração:</strong> </span>
-            <span>R$: {remuneraçao}</span>
             <span><strong>CPF:</strong> </span>
             <span>{cpf}</span>
             <span><strong>Endereço:</strong> </span>
@@ -43,12 +38,14 @@ console.log(colaboradores)
             <span>{telefone}</span>
             <span><strong>Email:</strong> </span>
             <span>{email}</span>
+            <span><strong>Observação:</strong> </span>
+            <span>{observacao}</span>
         </div >
-        <Link to={`/colaboradores/edit/${colaboradorId}`}>
+        <Link to={`/clientes/edit/${clientId}`} className='btn-center'>
             <button className='btn-form'>Editar</button>
         </Link>
     </section>
   )
 }
 
-export default SingleColaborador
+export default SingleClient
